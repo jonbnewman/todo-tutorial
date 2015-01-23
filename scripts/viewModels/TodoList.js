@@ -47,7 +47,7 @@ define(['footwork', 'scripts/viewModels/TodoItem.js'],
         // listen for any 'newItem' messages broadcast on our namespace.
         this.$namespace.subscribe('newItem', function(thingToDo) {
           // new thingToDo was received, lets create a new TodoItem based on it
-          self.todos.push( new TodoItem(thingToDo) );
+          self.todos.push( new TodoItem({ thingToDo: thingToDo }) );
         });
 
         // listen for any 'clearCompleted' commands broadcast on our namespace.
