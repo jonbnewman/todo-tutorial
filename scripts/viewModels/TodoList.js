@@ -99,6 +99,25 @@ define(['footwork', 'scripts/viewModels/TodoItem.js'],
         this.$namespace.subscribe('newItem', computeRemainingTodos);
         this.$namespace.command.handler('setAllAs', computeRemainingTodos);
         this.$namespace.command.handler('deleteItem', computeRemainingTodos);
+
+        // loggedInUser will receive its value from the MainRouter, we use it to filter localStorage
+        var loggedInUser = fw.observable().receiveFrom('MainRouter', 'loggedInUser');
+
+        // loop over all localStorage entries and import only our users todo entries
+        for(var keyNum = 0; keyNum < localStorage.length; keyNum++) {
+          var key = localStorage.key(keyNum);
+          // we only want to add todos that belong to this user so we check here
+          if(loggedInUser() === key.substr(0, loggedInUser().length)) {
+            /**
+             * The key starts with our loggedInUser so we add a new TodoItem using its value
+             * which we read and parse from localStorage
+             */
+            this.todos.push( new TodoItem( JSON.parse(localStorage.getItem(key)) ) );
+          }
+        }
+
+        // since we may have new entries we need to (re)compute the number of remaining todos
+        computeRemainingTodos();
       }
     });
   }
