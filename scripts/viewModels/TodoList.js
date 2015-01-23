@@ -13,6 +13,14 @@ define(['footwork', 'scripts/viewModels/TodoItem.js'],
           // new thingToDo was received, lets create a new TodoItem based on it
           self.todos.push( new TodoItem(thingToDo) );
         });
+
+        // listen for any 'setAllAs' commands broadcast on our namespace.
+        this.$namespace.command.handler('setAllAs', function(doneState) {
+          // when a new doneState is received loop through and set each todo
+          self.todos().forEach(function(todo) {
+            todo.isDone(doneState);
+          });
+        });
       }
     });
   }

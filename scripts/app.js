@@ -14,7 +14,7 @@ require(['footwork'],
   function(fw) {
     /**
      * Tell footwork it can find the 'LoginForm', 'TodoList', and 'Header' viewModels
-     * inside of scripts/viewModels.
+     * inside of scripts/viewModels/
      */
     fw.viewModels.registerLocation([
       'LoginForm', // will load from scripts/viewModels/LoginForm.js
