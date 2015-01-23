@@ -19,6 +19,9 @@
         <header>
           <div class="title">Things To Do...</div>
 
+          <!-- display the user name -->
+          <span class="username" data-bind="text: loggedInUser"></span>
+
           <!-- new $route bound link -->
           <a href="/" data-bind="$route" class="logout button">Logout</a>
         </header>
