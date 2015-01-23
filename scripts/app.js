@@ -36,6 +36,12 @@ require(['footwork'],
      */
     fw.routers.registerLocation('MainRouter', 'scripts/');
 
+    // Tell footwork it can find the login-page and todo-page inside of scripts/views/
+    fw.outlets.registerViewLocation([
+      'login-page', // will load from scripts/views/login-page.html
+      'todo-page' // will load from scripts/views/todo-page.html
+    ], 'scripts/views/');
+
     // tell footwork to startup and begin binding
     fw.start();
   }
