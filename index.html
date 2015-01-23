@@ -11,15 +11,19 @@
 
   <body>
     <main>
-      <form class="todo">
-        <div class="icon-chevron-down"></div>
-        <input type="text" name="thingToDo" placeholder="What needs to be done?" autofocus>
-        <input type="submit" value="Add Item" class="button">
-      </form>
+      <viewModel module="TodoForm">
+        <form class="todo" data-bind="submit: submitForm">
+          <div class="icon-chevron-down"></div>
+          <input type="text" name="thingToDo" data-bind="value: thingToDo" placeholder="What needs to be done?" autofocus>
+          <input type="submit" value="Add Item" class="button">
+        </form>
+      </viewModel>
       <div class="todo-list">
         Nothing to do.
       </div>
     </main>
     <script src="bower_components/footwork/dist/footwork-all.js"></script>
+    <script src="scripts/viewModels/TodoForm.js"></script>
+    <script src="scripts/app.js"></script>
   </body>
 </html>
