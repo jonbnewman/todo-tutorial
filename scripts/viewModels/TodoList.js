@@ -1,4 +1,4 @@
-define(['footwork', '/scripts/viewModels/TodoItem.js'],
+define(['footwork', 'scripts/viewModels/TodoItem.js'],
   function(fw, TodoItem) {
     return fw.viewModel({
       namespace: 'TodoList',
