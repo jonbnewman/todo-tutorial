@@ -21,6 +21,12 @@ define(['footwork', 'scripts/viewModels/TodoItem.js'],
             todo.isDone(doneState);
           });
         });
+
+        // listen for any 'deleteItem' commands broadcast on our namespace.
+        this.$namespace.command.handler('deleteItem', function(item) {
+          // when a new deleteItem command is received delete it from the list of todos
+          self.todos.remove(item);
+        });
       }
     });
   }
