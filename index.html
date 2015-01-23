@@ -18,12 +18,22 @@
           <input type="submit" value="Add Item" class="button">
         </form>
       </viewModel>
-      <div class="todo-list">
-        Nothing to do.
-      </div>
+      <viewModel module="TodoList">
+        <div class="todo-list">
+          <div class="todos" data-bind="foreach: todos">
+            <div class="todo">
+              <div class="status icon-check"></div>
+              <div class="text" data-bind="text: thingToDo"></div>
+              <div class="clear icon-x"></div>
+            </div>
+          </div>
+        </div>
+      </viewModel>
     </main>
     <script src="bower_components/footwork/dist/footwork-all.js"></script>
     <script src="scripts/viewModels/TodoForm.js"></script>
+    <script src="scripts/viewModels/TodoList.js"></script>
+    <script src="scripts/viewModels/TodoItem.js"></script>
     <script src="scripts/app.js"></script>
   </body>
 </html>
