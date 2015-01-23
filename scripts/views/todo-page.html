@@ -15,7 +15,12 @@
 </viewModel>
 <viewModel module="Footer">
   <footer>
-    <!-- text: binding which displays the number of remaining todo items -->
-    <span data-bind="text: numRemainingTodos"></span> items left
+    <div class="num-todo">
+      <!-- text: binding which displays the number of remaining todo items -->
+      <span data-bind="text: numRemainingTodos"></span> items left
+    </div>
+
+    <!-- click: binding which will clear/delete the completed todo entries -->
+    <button class="button" data-bind="click: clearCompleted">Clear Completed</button>
   </footer>
 </viewModel>

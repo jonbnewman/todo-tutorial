@@ -17,6 +17,22 @@ define(['footwork', 'scripts/viewModels/TodoItem.js'],
           self.todos.push( new TodoItem(thingToDo) );
         });
 
+        // listen for any 'clearCompleted' commands broadcast on our namespace.
+        this.$namespace.command.handler('clearCompleted', function() {
+          // Create a list of the completed todos
+          var completedTodos = [];
+          self.todos().forEach(function(todo) {
+            if(todo.isDone()) {
+              completedTodos.push(todo);
+            }
+          });
+
+          // remove the completed todo entries
+          completedTodos.forEach(function(todo) {
+            todo.deleteItem();
+          });
+        });
+
         // listen for any 'setAllAs' commands broadcast on our namespace.
         this.$namespace.command.handler('setAllAs', function(doneState) {
           // when a new doneState is received loop through and set each todo
