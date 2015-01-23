@@ -13,12 +13,13 @@ requirejs.config({
 require(['footwork'],
   function(fw) {
     /**
-     * Tell footwork it can find the 'LoginForm' and 'TodoList' viewModels
+     * Tell footwork it can find the 'LoginForm', 'TodoList', and 'Header' viewModels
      * inside of scripts/viewModels.
      */
     fw.viewModels.registerLocation([
       'LoginForm', // will load from scripts/viewModels/LoginForm.js
-      'TodoList' // will load from scripts/viewModels/TodoList.js
+      'TodoList', // will load from scripts/viewModels/TodoList.js
+      'Header' // will load from scripts/viewModels/Header.js
     ], 'scripts/viewModels/');
 
     /**
