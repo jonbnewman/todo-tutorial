@@ -14,5 +14,8 @@
   </div>
 </viewModel>
 <viewModel module="Footer">
-  <footer></footer>
+  <footer>
+    <!-- text: binding which displays the number of remaining todo items -->
+    <span data-bind="text: numRemainingTodos"></span> items left
+  </footer>
 </viewModel>
